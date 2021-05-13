@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡Veronica♡</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code" >
+                <span class="comments">/**</span><br />
+                <span class="space"/><span class="comments">* 晴朗的午后，我接到了一通来自大洋彼岸的电话</span><br />
+                <span class="space"/><span class="comments">* 那时开始，一个女生出现在了我的工作和生活中.</span><br />
+                <span class="space"/><span class="comments">*/</span><br />
+                Girl u = <span class="keyword">new</span> Girl(<span class="string">"Veronica Ni"</span>);<br />
+                u.phone.call();</br>
+                <span class="comments">// 这个女孩漂亮善良同时也很特别 </span><br />
+                u.prettiness += 10;</br>
+                u.cleverness += 10;</br>
+                u.飘～ += 100;</br>
+                <span class="comments">// 她的出现给了我不一样的精彩  </span><br />
+                <span class="import">import</span> information <span class="import">from</span> u.getResource();</br>
+                <span class="keyword">for</span> (Entity e:information){</br>
+                <span class="space"/><span class="space"/>self.obtain(e);</br>
+                <span class="space"/><span class="space"/><span class="keyword">if</span> (<span class="string">"微微一笑很倾城"</span>.equals(e.getTitle())){</br>
+                <span class="space"/><span class="space"/><span class="space"/><span class="space"/><span class="import">throws</span><span class="keyword"> new</span>
+                OutOfMemoryError();</br>
+                <span class="space"/><span class="space"/>}</br>
+                }</br>
+                <span class="comments">// 女孩告诉我，想要的东西一定要努力去争取，争取就会有结果</span><br />
+                <span class="keyword">if</span> (u.want(Object sth)){</br>
+                <span class="space"/><span class="space"/>u.obtain(sth);</br>
+                }</br>
+                <span class="comments">// 不知道何时开始，我也变得充满干劲，变得闪闪发光 </span><br />
+                self.effort ++;</br>
+                self.shining();</br>
+                <span class="comments">// 终于，我发现，那是我望向她时我眼里的光 </span><br />
+                self.vision().replace(<span class="string">"light"</span>,u);<br />
+                <span class="comments">// 愿女孩永远幸福健康，永远闪耀着光芒 </span><br />
+                Date endOfTheWorld = <span class="keyword">new</span> Date(<span class="string">"2999-12-31 00:00:00"</span>); <br />
+
+                <span class="keyword">new</span> Thread (){<br />
+                <span class="space"/><span class="space"/>@Override </br>
+                <span class="space"/><span class="space"/><span class="comments">// 直到世界尽头</span><br />
+                <span class="space"/><span class="space"/><span class="keyword">while</span> (today.before(endOfTheWorld)){</br>
+                <span class="space"/><span class="space"/><span class="space"/><span class="space"/>u.fortune ++;</br>
+                <span class="space"/><span class="space"/><span class="space"/><span class="space"/>u.happiness ++;</br>
+                <span class="space"/><span class="space"/><span class="space"/><span class="space"/>u.health ++;</br>
+                <span class="space"/><span class="space"/><span class="comments">// and everything you wish can be achieved.</span><br />
+                <span class="space"/><span class="space"/>}</br>
+                }.start()</br>
+                <span class="comments">// 最后再次祝愿————生日快乐！</span><br />
+                System.out.println(<span class="string">"Happy Birthday!"</span>);
+            </div>
+        </div>
+    </div>
+</div>
+<audio style="display:none; height: 0" id="bg-music" preload="auto" src="music/2.mp3" loop="loop"></audio>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<!--<script src="js/auto-play.js"></script>-->
+<script src="js/birthday.js"></script>
+<script type="text/javascript">
+    $("#code").typewriter();
+    // loadAudioFile('music/2.mp3');
+</script>
+<script>
+    //音乐自动播放
+    $(document).ready(function(){
+        autoPlayMusic();
+        audioAutoPlay();
+    });
+    function audioAutoPlay() {
+        var audio = document.getElementById('bg-music');
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
+    // 音乐播放
+    function autoPlayMusic() {
+        // 自动播放音乐效果，解决浏览器或者APP自动播放问题
+        function musicInBrowserHandler() {
+            musicPlay(true);
+            document.body.removeEventListener('touchstart', musicInBrowserHandler);
+        }
+        document.body.addEventListener('touchstart', musicInBrowserHandler);
+        // 自动播放音乐效果，解决微信自动播放问题
+        function musicInWeixinHandler() {
+            musicPlay(true);
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                musicPlay(true);
+            }, false);
+            document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+        }
+        document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+    }
+    function musicPlay(isPlay) {
+        var media = document.querySelector('#bg-music');
+        if (isPlay && media.paused) {
+            media.play();
+        }
+        if (!isPlay && !media.paused) {
+            media.pause();
+        }
+    }
+</script>
+</body>
+</html>
